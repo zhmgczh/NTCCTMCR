@@ -1032,7 +1032,7 @@
 </style>
 <div style="text-align: center;">
   <a
-    href="/%e8%87%ba%e7%81%a3%e6%ad%a3%e9%ab%94%e5%ad%97%e8%88%87%e5%a4%a7%e9%99%b8%e7%b0%a1%e5%8c%96%e5%ad%97%e5%b0%8d%e7%85%a7%e7%b4%a2%e5%bc%95%e7%b8%bd%e8%a1%a8/"><button>跳轉到《臺灣正體字與大陸簡化字對照索引總表》</button></a>
+    href="/%E8%87%BA%E5%BD%8E%E6%AD%A3%E9%AB%94%E5%AD%97%E8%88%87%E5%A4%A7%E9%99%B8%E7%B0%A1%E5%8C%96%E5%AD%97%E5%B0%8D%E7%85%A7%E7%B4%A2%E5%BC%95%E7%B8%BD%E8%A1%A8/"><button>跳轉到《臺灣正體字與大陸簡化字對照索引總表》</button></a>
 </div>
 <link href='/DataTables-1.10.21/media/css/jquery.dataTables.min.css' rel='stylesheet'>
 </link>
@@ -1134,7 +1134,7 @@ result.sort((a, b) => a.localeCompare(b, 'zh-Hant-TW'));
 var main_string = '';
 for (var i = 0; i < result.length; ++i) {
   var title_tag = result[i].substring('一簡多繁辨析之'.length);
-  main_string += '<tr><td>' + title_tag + '</td><td>' + '<a href="https://www.zh-tw.top/一簡多繁辨析/' + result[i] + '" target="_blank">點擊打開</a>' + '</td><td>' + '<input type="checkbox" id="yijianduofanbianxi_' + title_tag + '" onclick="checkbox_onclick(' + "'" + title_tag + "'" + ')"' + (records_array.includes(title_tag) ? ' checked' : '') + '>' + '</td></tr>';
+  main_string += '<tr><td>' + title_tag + '</td><td>' + '<a href="/一簡多繁辨析/' + result[i] + '" target="_blank">點擊打開</a>' + '</td><td>' + '<input type="checkbox" id="yijianduofanbianxi_' + title_tag + '" onclick="checkbox_onclick(' + "'" + title_tag + "'" + ')"' + (records_array.includes(title_tag) ? ' checked' : '') + '>' + '</td></tr>';
 }
 var main = document.getElementById('main_一簡多繁辨析_table');
 main.innerHTML = main_string;
@@ -1329,13 +1329,13 @@ function jump_page() {
     </div>
     <div id="block-21" class="widget widget_block widget_text">
         <div class="widget-content">
-            <p><a href="/%E3%80%8C%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90%E3%80%8D%E5%AD%B8%E7%BF%92%E7%B4%A2%E5%BC%95%E8%A1%A8/">「一簡多繁辨析」學習索引表</a>
+            <p><a href="/%e3%80%8c%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e3%80%8d%e5%ad%b8%e7%bf%92%e7%b4%a2%e5%bc%95%e8%a1%a8/">「一簡多繁辨析」學習索引表</a>
             </p>
         </div>
     </div>
     <div id="block-22" class="widget widget_block widget_text">
         <div class="widget-content">
-            <p><a href="/%E8%87%BA%E7%81%A3%E6%AD%A3%E9%AB%94%E5%AD%97%E8%88%87%E5%A4%A7%E9%99%B8%E7%B0%A1%E5%8C%96%E5%AD%97%E5%B0%8D%E7%85%A7%E7%B4%A2%E5%BC%95%E7%B8%BD%E8%A1%A8/">臺灣正體字與大陸簡化字對照索引總表</a>
+            <p><a href="/%E8%87%BA%E5%BD%8E%E6%AD%A3%E9%AB%94%E5%AD%97%E8%88%87%E5%A4%A7%E9%99%B8%E7%B0%A1%E5%8C%96%E5%AD%97%E5%B0%8D%E7%85%A7%E7%B4%A2%E5%BC%95%E7%B8%BD%E8%A1%A8/">臺灣正體字與大陸簡化字對照索引總表</a>
             </p>
         </div>
     </div>
