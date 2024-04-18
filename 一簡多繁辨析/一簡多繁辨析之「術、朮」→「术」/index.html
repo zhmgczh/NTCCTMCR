@@ -806,8 +806,8 @@
     var disqus_config = function () {
         const base_url=window.location.protocol+'//'+window.location.hostname+(window.location.port?':'+window.location.port:'')+'/';
         var original_url=window.location.href;
-        var new_url=original_url.replace(base_url,'https://www.zh-tw.top/');
-        this.page.url = new_url;  // Replace PAGE_URL with your page's canonical URL variable
+        var new_url=original_url.replace(base_url,'https://www.zh-tw.top/').split('#')[0].split('?')[0];
+        this.page.url = new_url.toLowerCase();  // Replace PAGE_URL with your page's canonical URL variable
         console.log(this.page.url);
         //this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
@@ -817,6 +817,31 @@
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
+//     function check()
+//     {
+//         var dsq_app=document.querySelector('[id^="dsq-app"]');
+//         if(null!=dsq_app)
+//         {
+//             var s_o_index=dsq_app.src.indexOf('s_o');
+//             var and_index=dsq_app.src.indexOf('&',s_o_index);
+//             if(-1==and_index)
+//             {
+//                 and_index=dsq_app.src.indexOf('#',s_o_index);
+//             }
+//             if(-1==and_index)
+//             {
+//                 and_index=dsq_app.src.length-1;
+//             }
+//             var remove_need=dsq_app.src.substring(s_o_index,and_index+1);
+//             dsq_app.setAttribute('src',dsq_app.src.replace(remove_need,''));
+//             dsq_app.contentWindow.location.reload();
+//         }
+//         else
+//         {
+//             setTimeout(check,200);
+//         }
+//     }
+//     check();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 				</div><!-- .respond-container -->
