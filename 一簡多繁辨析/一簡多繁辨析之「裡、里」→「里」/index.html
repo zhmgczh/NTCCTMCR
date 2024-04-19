@@ -906,8 +906,11 @@
     }
     function select_related(data, tag, n) {
         var keys = [];
-        for (var key in Object.keys(data)) {
-            keys.concat(Array(key).fill(Object.keys(data[key]).length));
+        var keys_index = 0;
+        for (var key in data) {
+            for (var i = 0; i < data[key].length; ++i) {
+                keys[keys_index++] = key;
+            }
         }
         var tag = get_random_subarray(keys, 1)[0];
         var index = get_random_subarray(Object.keys(data[tag]), 1)[0];
