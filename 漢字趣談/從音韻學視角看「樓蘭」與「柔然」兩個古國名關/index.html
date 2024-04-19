@@ -647,7 +647,7 @@
     <span class="resp"> 則留言</span>
 </a> -->
 <a name="count_comments" href="#disqus_thread" style="display:none;">查看留言</a>
-<a name="display_comments" href="#disqus_thread">查看留言</a>
+<a name="display_comments" href="#disqus_thread"><span class="fa fw fa-comment"></span>查看留言</a>
 <script>
     var base_url=window.location.protocol+'//'+window.location.hostname+(window.location.port?':'+window.location.port:'')+'/';
     var original_url=window.location.href;
@@ -662,7 +662,7 @@
     {
         if('查看留言'!=count_comments.innerHTML)
         {
-            display_comments.innerHTML=count_comments.innerHTML;
+            display_comments.innerHTML=display_comments.replace('查看留言',count_comments.innerHTML);
         }
         else
         {

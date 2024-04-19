@@ -813,7 +813,7 @@
 									{
 										if('查看留言'!=count_comments.innerHTML)
 										{
-											display_comments.innerHTML=count_comments.innerHTML;
+											display_comments.innerHTML=display_comments.replace('查看留言',count_comments.innerHTML);
 										}
 										else
 										{
@@ -843,7 +843,7 @@
 									{
 										if('查看留言'!=count_comments.innerHTML)
 										{
-											display_comments.innerHTML=count_comments.innerHTML;
+											display_comments.innerHTML=display_comments.replace('查看留言',count_comments.innerHTML);
 										}
 										else
 										{
@@ -857,22 +857,37 @@
 					</article><!-- .post -->
 				</div><!-- .posts -->
 				<div id="page_navigation" class="archive-nav">
-					<li class="number active"><a
-							href="./">1</a>
+					<li class="number active">
+						<a href="./">1</a>
 					</li>
-					<li class="number"><a
-							href="./?page=2">2</a>
+					<li class="number">
+						<a href="./?page=2">2</a>
 					</li>
-					<li class="number"><a
-							href="./?page=3">3</a>
+					<li class="number">
+						<a href="./?page=3">3</a>
 					</li>
 					<li class="number">...</li>
-					<li class="number"><a
-							href="./?page=55">55</a>
+					<li class="number">
+						<a href="./?page=55">55</a>
 					</li>
-					<li class="archive-nav-older"><a
-							href="./?page=2">往後 →</a></li>
+					<li class="archive-nav-older">
+						<a href="./?page=2">往後 →</a>
+					</li>
 					<div class="clear"></div>
+					<li class="archive-nav-newer" id="page_navigation_newer" style="display:none;">
+						<a href="./?page=|||||page_index|||||">← 返前</a>
+					</li>
+					<li class="archive-nav-older" id="page_navigation_older" style="display:none;">
+						<a href="./?page=|||||page_index|||||">往後 →</a>
+					</li>
+					<li class="number" id="page_navigation_dots" style="display:none;">...</li>
+					<li class="number" id="page_navigation_number" style="display:none;">
+						<a href="./?page=|||||page_index|||||">|||||page_index|||||</a>
+					</li>
+					<li class="number active" id="page_navigation_number_active" style="display:none;">
+						<a href="./?page=|||||page_index|||||">|||||page_index|||||</a>
+					</li>
+					<div class="clear" id="page_navigation_clear" style="display:none;"></div>
 				</div><!-- .archive-nav -->
 				<script>
     function request_json(url, process) {
@@ -889,7 +904,72 @@
         xhr.send();
     }
     function process_page_navigation(page, total_pages) {
-
+        var container=document.getElementById('page_navigation');
+        var page_navigation_newer=document.getElementById('page_navigation_newer');
+        var page_navigation_older=document.getElementById('page_navigation_older');
+        var page_navigation_dots=document.getElementById('page_navigation_dots');
+        var page_navigation_number=document.getElementById('page_navigation_number');
+        var page_navigation_number_active=document.getElementById('page_navigation_number_active');
+        var page_navigation_clear=document.getElementById('page_navigation_clear');
+        var left=Math.max(1,page-2);
+        var right=Math.min(total_pages,page+2);
+        var elements=[];
+        var index=0;
+        console.log(left,right,page,total_pages)
+        if(1<page)
+        {
+            elements[index++] = page_navigation_newer.outerHTML.replaceAll(' id="page_navigation_newer" style="display:none;"', '').replaceAll('|||||page_index|||||',page-1);
+        }
+        if(1<left)
+        {
+            elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||',1).replaceAll('?page=1','');
+        }
+        if(2<left)
+        {
+            elements[index++] = page_navigation_dots.outerHTML.replaceAll(' id="page_navigation_dots" style="display:none;"', '');
+        }
+        for(var i=left;i<=right;++i)
+        {
+            if(i!=page)
+            {
+                elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||',i);
+            }
+            else
+            {
+                elements[index++] = page_navigation_number_active.outerHTML.replaceAll(' id="page_navigation_number_active" style="display:none;"', '').replaceAll('|||||page_index|||||',i);
+            }
+            if(1==i)
+            {
+                elements[index-1]=elements[index-1].replaceAll('?page=1','');
+            }
+        }
+        if(right<total_pages-1)
+        {
+            elements[index++] = page_navigation_dots.outerHTML.replaceAll(' id="page_navigation_dots" style="display:none;"', '');
+        }
+        if(right<total_pages)
+        {
+            elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||',total_pages);
+        }
+        if(page<total_pages)
+        {
+            elements[index++] = page_navigation_older.outerHTML.replaceAll(' id="page_navigation_older" style="display:none;"', '').replaceAll('|||||page_index|||||',page+1);
+        }
+        elements[index++] = page_navigation_newer.outerHTML;
+        elements[index++] = page_navigation_older.outerHTML;
+        elements[index++] = page_navigation_dots.outerHTML;
+        elements[index++] = page_navigation_number.outerHTML;
+        elements[index++] = page_navigation_number_active.outerHTML;
+        elements[index++] = page_navigation_clear.outerHTML;
+        container.innerHTML = elements.join('\n');
+        if(1==page)
+        {
+            document.title=pure_title;
+        }
+        else
+        {
+            document.title=pure_title+' - Page '+page.toString();
+        }
     }
     function select_category(data, tag, page) {
         var keys = Object.keys(data[tag]);
@@ -906,12 +986,11 @@
         current_page_index.innerHTML = page;
         var left = (page - 1) * 10;
         var right = Math.min(page * 10, keys.length);
-        console.log(total_pages,keys.length,left,right)
         var container = document.getElementById('posts');
         var article_post_sample = document.getElementById('article_post_sample');
         var page_post_sample = document.getElementById('page_post_sample');
-        elements = [];
-        index = 0;
+        var elements = [];
+        var index = 0;
         for (var i = left; i < right; ++i) {
             var new_element = article_post_sample.outerHTML.replaceAll(' id="article_post_sample" style="display:none;"', '');
             new_element = new_element.replaceAll('|||||category|||||', tag);
@@ -937,10 +1016,12 @@
         }
         return '';
     }
-    page = get_query_variable('page')
+    var page = get_query_variable('page');
     if ('' == page) {
         page = 1;
     }
+    page=parseInt(page);
+    var pure_title=document.title;
     request_json('/category_database.js', (data) => select_category(data, '一簡多繁辨析', page))
 </script>
 			</div><!-- .content -->
