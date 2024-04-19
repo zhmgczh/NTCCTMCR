@@ -809,8 +809,8 @@
         stroke_id = '';
     }
 </script><p></p>
-							<div style="clear:both; margin-top:10em; margin-bottom:1em;"><a
-        href="/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e8%a9%ab%e3%80%81%e5%90%92%e3%80%8d%e2%86%92%e3%80%8c%e8%af%a7%e3%80%81%e5%92%a4%e3%80%81%e5%90%92%e3%80%8d/"
+							<div style="clear:both; margin-top:10em; margin-bottom:1em;">
+    <a  id="article_related_link" href="/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e8%a9%ab%e3%80%81%e5%90%92%e3%80%8d%e2%86%92%e3%80%8c%e8%af%a7%e3%80%81%e5%92%a4%e3%80%81%e5%90%92%e3%80%8d/"
         target="_self" rel="dofollow" class="u40d968d20e64592e62438cec05dc6506"><!-- INLINE RELATED POSTS 1/3 //-->
         <style>
             .u40d968d20e64592e62438cec05dc6506 {
@@ -855,9 +855,47 @@
                 text-decoration: underline !important;
             }
         </style>
-        <div style="padding-left:1em; padding-right:1em;"><span class="ctaText">相關條目或文章推薦：</span>&nbsp; <span
-                class="postTitle">一簡多繁辨析之「詫、吒」→「诧、咤、吒」</span></div>
-    </a></div>
+        <div style="padding-left:1em; padding-right:1em;">
+            <span class="ctaText">相關條目或文章推薦：</span>
+            &nbsp;
+            <span id="article_related_title" class="postTitle">一簡多繁辨析之「詫、吒」→「诧、咤、吒」</span>
+        </div>
+    </a>
+</div>
+<script>
+    function request_json(url, process) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange = function () {
+            if (4 === xhr.readyState && 200 === xhr.status) {
+                const data = JSON.parse(xhr.responseText);
+                process(data);
+            } else if (4 === xhr.readyState) {
+                console.error('Failed to load JSON.');
+            }
+        };
+        xhr.send();
+    }
+    function get_random_subarray(arr, size) {
+        var shuffled = arr.slice(0), i = arr.length, min = i - size, temp, index;
+        while (i-- > min) {
+            index = Math.floor((i + 1) * Math.random());
+            temp = shuffled[index];
+            shuffled[index] = shuffled[i];
+            shuffled[i] = temp;
+        }
+        return shuffled.slice(min);
+    }
+    function select_related(data, tag, n) {
+        var tag = get_random_subarray(Object.keys(data),1)[0];
+        var index = get_random_subarray(Object.keys(data[tag]),1)[0];
+        var article_related_title=document.getElementById('article_related_title');
+        var article_related_link=document.getElementById('article_related_link');
+        article_related_title.innerHTML=data[tag][index]['title'];
+        article_related_link.setAttribute('href',data[tag][index]['url']);
+    }
+    request_json('/category_database.js', (data) => select_related(data, 1))
+</script>
 						</div><!-- .post-content -->
 					</div><!-- .post-inner -->
 				</article><!-- .post -->
