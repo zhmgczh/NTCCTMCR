@@ -905,7 +905,8 @@
         var current_page_index = document.getElementById('current_page_index');
         current_page_index.innerHTML = page;
         var left = (page - 1) * 10;
-        var right = Math.min(page * 10, total_pages);
+        var right = Math.min(page * 10, keys.length);
+        console.log(total_pages,keys.length,left,right)
         var container = document.getElementById('posts');
         var article_post_sample = document.getElementById('article_post_sample');
         var page_post_sample = document.getElementById('page_post_sample');
