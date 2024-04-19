@@ -817,8 +817,6 @@
 									var script_tag = document.getElementsByTagName('script');
 									script_tag = script_tag[script_tag.length - 1];
 									var parent = script_tag.parentNode;
-									var count_comments = parent.getElementsByTagName('a')[0];
-									var display_comments = parent.getElementsByTagName('a')[1];
 									function check(count_comments, display_comments) {
 										if ('查看留言' != count_comments.innerHTML) {
 											display_comments.innerHTML = display_comments.innerHTML.replace('查看留言', count_comments.innerHTML);
@@ -827,7 +825,7 @@
 											setTimeout(() => check(count_comments, display_comments), 200);
 										}
 									}
-									check(count_comments, display_comments);
+									check(parent.getElementsByTagName('a')[0], parent.getElementsByTagName('a')[1]);
 								</script>
 							</p>
 						</header><!-- .post-header -->
@@ -844,8 +842,6 @@
 									var script_tag = document.getElementsByTagName('script');
 									script_tag = script_tag[script_tag.length - 1];
 									var parent = script_tag.parentNode;
-									var count_comments = parent.getElementsByTagName('a')[0];
-									var display_comments = parent.getElementsByTagName('a')[1];
 									function check(count_comments, display_comments) {
 										if ('查看留言' != count_comments.innerHTML) {
 											display_comments.innerHTML = display_comments.innerHTML.replace('查看留言', count_comments.innerHTML);
@@ -854,7 +850,7 @@
 											setTimeout(() => check(count_comments, display_comments), 200);
 										}
 									}
-									check(count_comments, display_comments);
+									check(parent.getElementsByTagName('a')[0], parent.getElementsByTagName('a')[1]);
 								</script>
 							</p>
 						</header><!-- .post-header -->
