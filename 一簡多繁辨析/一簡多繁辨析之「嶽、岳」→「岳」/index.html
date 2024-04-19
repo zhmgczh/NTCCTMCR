@@ -1166,7 +1166,9 @@
     }
     else if (-1 != new_url.indexOf('/category/')) {
         var page_1 = get_query_variable('page');
-        new_url = new_url.split('?page=')[0] + '/page/' + page_1 + '/';
+        if ('' != page_1) {
+            new_url = new_url.split('?page=')[0] + '/page/' + page_1 + '/';
+        }
     }
     var dynamic = document.getElementById('dynamic');
     dynamic.setAttribute('href', new_url);
