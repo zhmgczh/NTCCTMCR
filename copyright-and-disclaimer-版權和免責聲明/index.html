@@ -1319,12 +1319,12 @@ When using or citing the work, you may not imply endorsement by the author or th
     }
     else if (-1 != new_url.indexOf('/search/')) {
         var page = get_query_variable('page');
-        var search_keyword = get_query_variable('s');
+        var search_keyword_1 = get_query_variable('s');
         if ('' == page) {
-            new_url = 'https://www.zh-tw.top/?s=' + search_keyword;
+            new_url = 'https://www.zh-tw.top/?s=' + search_keyword_1;
         }
         else {
-            new_url = 'https://www.zh-tw.top/page/' + page + '/?s=' + search_keyword;
+            new_url = 'https://www.zh-tw.top/page/' + page + '/?s=' + search_keyword_1;
         }
     }
     var dynamic = document.getElementById('dynamic');
