@@ -915,7 +915,6 @@
         var right=Math.min(total_pages,page+2);
         var elements=[];
         var index=0;
-        console.log(left,right,page,total_pages)
         if(1<page)
         {
             elements[index++] = page_navigation_newer.outerHTML.replaceAll(' id="page_navigation_newer" style="display:none;"', '').replaceAll('|||||page_index|||||',page-1);
@@ -984,7 +983,7 @@
         }
         var current_page_index = document.getElementById('current_page_index');
         current_page_index.innerHTML = page;
-        var left = (page - 1) * 10;
+        var left = Math.max((page - 1) * 10, 0);
         var right = Math.min(page * 10, keys.length);
         var container = document.getElementById('posts');
         var article_post_sample = document.getElementById('article_post_sample');
