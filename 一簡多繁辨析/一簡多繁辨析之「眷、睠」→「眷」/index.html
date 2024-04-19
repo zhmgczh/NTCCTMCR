@@ -12,7 +12,7 @@
 偏旁辨析：只有「眷」可作偏旁，如「慻」、「膡」、「䒅」等。">
 	<meta name="robots" content="max-image-preview:large">
 	<link rel="canonical"
-		href="https://static.zh-tw.top/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90%E4%B9%8B%E3%80%8C%E7%9C%B7%E3%80%81%E7%9D%A0%E3%80%8D%E2%86%92%E3%80%8C%E7%9C%B7%E3%80%8D/">
+		href="https://static.zh-tw.top/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e7%9c%b7%e3%80%81%e7%9d%a0%e3%80%8d%e2%86%92%e3%80%8c%e7%9c%b7%e3%80%8d/">
 	<meta name="generator" content="All in One SEO (AIOSEO) 4.6.0">
 	<meta property="og:locale" content="zh_TW">
 	<meta property="og:site_name" content="大陸居民臺灣正體字講義 - Notes on Traditional Chinese Characters in Taiwan for Mainland Chinese Residents">
@@ -22,7 +22,7 @@
 辨音：「眷、睠」音juàn[ㄐㄩㄢˋ]。
 辨意：「眷」是指回頭看、嚮往、思慕、留戀、照顧、關愛、家屬、親屬、已婚婦女、姓氏，如「眷戀」、「眷念」、「眷顧」、「眷愛」、「親眷」、「家眷」、「攜家帶眷」、「女眷」、「宅眷」（家眷、家屬，尤指富貴人家的女眷）、「如花美眷」等。而「睠」則是指回頭看或關心、顧念（同「眷」），如「睠睠」（指回顧）、「睠以佳耦」（指因關心而為他人介紹好的配偶）等。現代語境中區分「眷」和「睠」，只要記住除「睠睠」和「睠以佳耦」外一律用「眷」即可。需要注意的是，只有「眷」可作姓氏。
 偏旁辨析：只有「眷」可作偏旁，如「慻」、「膡」、「䒅」等。">
-	<meta property="og:url" content="https://static.zh-tw.top/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90%E4%B9%8B%E3%80%8C%E7%9C%B7%E3%80%81%E7%9D%A0%E3%80%8D%E2%86%92%E3%80%8C%E7%9C%B7%E3%80%8D/">
+	<meta property="og:url" content="https://static.zh-tw.top/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e7%9c%b7%e3%80%81%e7%9d%a0%e3%80%8d%e2%86%92%e3%80%8c%e7%9c%b7%e3%80%8d/">
 	<meta property="article:published_time" content="2024-02-27T23:18:42+00:00">
 	<meta property="article:modified_time" content="2024-04-14T05:42:40+00:00">
 	<meta name="twitter:card" content="summary_large_image">
@@ -640,29 +640,31 @@
     <span class="fa fw fa-comment"></span>0
     <span class="resp"> 則留言</span>
 </a> -->
-<a id="count_comments" href="#disqus_thread" style="display:none;">查看留言</a>
+<a name="count_comments" href="#disqus_thread" style="display:none;">查看留言</a>
+<a name="display_comments" href="#disqus_thread">查看留言</a>
 <script>
     var base_url=window.location.protocol+'//'+window.location.hostname+(window.location.port?':'+window.location.port:'')+'/';
     var original_url=window.location.href;
     var new_url=original_url.replace(base_url,'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
-    var count_comments=document.getElementById('count_comments');
+    var script_tag=document.getElementsByTagName('script');
+	script_tag=script_tag[script_tag.length-1];
+	var parent=script_tag.parentNode;
+	var count_comments=parent.getElementsByTagName('a')[0];
     count_comments.setAttribute('href',new_url+'#disqus_thread');
-    function check()
+	var display_comments=parent.getElementsByTagName('a')[1];
+    function check(count_comments,display_comments)
     {
         if('查看留言'!=count_comments.innerHTML)
         {
-            var display_comments=document.getElementById('display_comments');
             display_comments.innerHTML=count_comments.innerHTML;
         }
         else
         {
-            setTimeout(check,200);
+            setTimeout(()=>check(count_comments,display_comments),200);
         }
     }
-    check()
+    check(count_comments,display_comments);
 </script>
-<a id="display_comments" href="#disqus_thread">查看留言</a>
-<script id="dsq-count-scr" src="//ntcctmcr.disqus.com/count.js" async></script>
 							</span>
 						</div><!-- .post-meta -->
 					</div><!-- .post-header -->

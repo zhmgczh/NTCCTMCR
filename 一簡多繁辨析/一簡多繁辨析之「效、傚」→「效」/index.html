@@ -12,7 +12,7 @@
 偏旁辨析：只有「效」可作聲旁，如「傚」等。">
 	<meta name="robots" content="max-image-preview:large">
 	<link rel="canonical"
-		href="https://static.zh-tw.top/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90%E4%B9%8B%E3%80%8C%E6%95%88%E3%80%81%E5%82%9A%E3%80%8D%E2%86%92%E3%80%8C%E6%95%88%E3%80%8D/">
+		href="https://static.zh-tw.top/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e6%95%88%e3%80%81%e5%82%9a%e3%80%8d%e2%86%92%e3%80%8c%e6%95%88%e3%80%8d/">
 	<meta name="generator" content="All in One SEO (AIOSEO) 4.6.0">
 	<meta property="og:locale" content="zh_TW">
 	<meta property="og:site_name" content="大陸居民臺灣正體字講義 - Notes on Traditional Chinese Characters in Taiwan for Mainland Chinese Residents">
@@ -22,7 +22,7 @@
 辨音：「效、傚」音xiào[ㄒㄧㄠˋ]。
 辨意：「效」是指摹仿、致送、奉獻、功用、徵驗、證明，如「效法」（合乎法則；學習、模仿）、「效尤」（故意倣傚他人錯誤的行為）、「慕效」（羨慕而倣傚之）、「東施效顰」、「上行下效」、「效勞」、「效力」、「效忠」、「功效」、「藥效」、「療效」、「音效」、「有效」、「無效」、「見效」、「生效」、「奏效」、「成效」、「奇效」、「特效」、「效果」、「效用」、「效應」、「效益」、「後效」（如「以觀後效」等）、「效能」、「效率」、「時效」、「實效」、「失效」、「效驗」等。而「傚」則是指摹仿、效法，同「效」，如「倣傚」（亦作「仿傚」）、「法傚」（摹仿、倣傚）、「模傚」（模仿、倣傚，亦作「模仿」）、「摹傚」（倣傚，亦作「摹仿」）等。現代語境中區分「效」和「傚」，只要記住除「倣傚」、「仿傚」、「法傚」、「模傚」和「摹傚」外一般都是用「效」即可，注意漢字前後部首之趨同性（如「倣傚」、「仿傚」等）。
 偏旁辨析：只有「效」可作聲旁，如「傚」等。">
-	<meta property="og:url" content="https://static.zh-tw.top/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90%E4%B9%8B%E3%80%8C%E6%95%88%E3%80%81%E5%82%9A%E3%80%8D%E2%86%92%E3%80%8C%E6%95%88%E3%80%8D/">
+	<meta property="og:url" content="https://static.zh-tw.top/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e6%95%88%e3%80%81%e5%82%9a%e3%80%8d%e2%86%92%e3%80%8c%e6%95%88%e3%80%8d/">
 	<meta property="article:published_time" content="2024-02-27T23:18:42+00:00">
 	<meta property="article:modified_time" content="2024-04-14T05:42:40+00:00">
 	<meta name="twitter:card" content="summary_large_image">
@@ -640,29 +640,31 @@
     <span class="fa fw fa-comment"></span>0
     <span class="resp"> 則留言</span>
 </a> -->
-<a id="count_comments" href="#disqus_thread" style="display:none;">查看留言</a>
+<a name="count_comments" href="#disqus_thread" style="display:none;">查看留言</a>
+<a name="display_comments" href="#disqus_thread">查看留言</a>
 <script>
     var base_url=window.location.protocol+'//'+window.location.hostname+(window.location.port?':'+window.location.port:'')+'/';
     var original_url=window.location.href;
     var new_url=original_url.replace(base_url,'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
-    var count_comments=document.getElementById('count_comments');
+    var script_tag=document.getElementsByTagName('script');
+	script_tag=script_tag[script_tag.length-1];
+	var parent=script_tag.parentNode;
+	var count_comments=parent.getElementsByTagName('a')[0];
     count_comments.setAttribute('href',new_url+'#disqus_thread');
-    function check()
+	var display_comments=parent.getElementsByTagName('a')[1];
+    function check(count_comments,display_comments)
     {
         if('查看留言'!=count_comments.innerHTML)
         {
-            var display_comments=document.getElementById('display_comments');
             display_comments.innerHTML=count_comments.innerHTML;
         }
         else
         {
-            setTimeout(check,200);
+            setTimeout(()=>check(count_comments,display_comments),200);
         }
     }
-    check()
+    check(count_comments,display_comments);
 </script>
-<a id="display_comments" href="#disqus_thread">查看留言</a>
-<script id="dsq-count-scr" src="//ntcctmcr.disqus.com/count.js" async></script>
 							</span>
 						</div><!-- .post-meta -->
 					</div><!-- .post-header -->

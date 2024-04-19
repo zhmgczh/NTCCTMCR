@@ -12,7 +12,7 @@
 偏旁辨析：只有「蚕」可作偏旁，如「䘉」（「蠶」之異體）等。">
 	<meta name="robots" content="max-image-preview:large">
 	<link rel="canonical"
-		href="https://static.zh-tw.top/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90%E4%B9%8B%E3%80%8C%E8%A0%B6%E3%80%81%E8%9A%95%E3%80%8D%E2%86%92%E3%80%8C%E8%9A%95%E3%80%8D/">
+		href="https://static.zh-tw.top/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e8%a0%b6%e3%80%81%e8%9a%95%e3%80%8d%e2%86%92%e3%80%8c%e8%9a%95%e3%80%8d/">
 	<meta name="generator" content="All in One SEO (AIOSEO) 4.6.0">
 	<meta property="og:locale" content="zh_TW">
 	<meta property="og:site_name" content="大陸居民臺灣正體字講義 - Notes on Traditional Chinese Characters in Taiwan for Mainland Chinese Residents">
@@ -22,7 +22,7 @@
 辨音：「蠶」音cán[ㄘㄢˊ]，「蚕」音tiǎn[ㄊㄧㄢˇ]。故「蠶」與「蚕」為極易區分之字，可因聲辨字（根據不同的讀音確定不同的字）。
 辨意：「蠶」是鱗翅目「蠶蛾科」和「天蠶科」昆蟲之通稱，亦可指「養蠶」或指如蠶吃桑葉一般侵佔或聚斂，如「蠶蛾」、「天蠶」、「冰蠶」、「沙蠶」、「石蠶」、「茶蠶」、「殭蠶」、「白殭蠶」、「蠶眠」、「蠶寶寶」、「蠶頭燕尾」（書法上稱橫畫起筆回鋒，隆起如蠶頭之形，收筆頓筆挑起，具雁尾之狀）、「臥蠶眉」、「目下有臥蠶」、「蠶豆」（植物名）、「蠶食」、「蠶食鯨吞」、「蠶室」、「蠶事」等。而「蚕」則是專用於固定詞彙「蜸（qiǎn[ㄑㄧㄢˇ]）蚕」（指蚯蚓）中。現代語境中區分「蠶」和「蚕」，只要記住除「蜸蚕」一詞外一律用「蠶」即可。
 偏旁辨析：只有「蚕」可作偏旁，如「䘉」（「蠶」之異體）等。">
-	<meta property="og:url" content="https://static.zh-tw.top/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90%E4%B9%8B%E3%80%8C%E8%A0%B6%E3%80%81%E8%9A%95%E3%80%8D%E2%86%92%E3%80%8C%E8%9A%95%E3%80%8D/">
+	<meta property="og:url" content="https://static.zh-tw.top/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e8%a0%b6%e3%80%81%e8%9a%95%e3%80%8d%e2%86%92%e3%80%8c%e8%9a%95%e3%80%8d/">
 	<meta property="article:published_time" content="2024-02-27T23:18:42+00:00">
 	<meta property="article:modified_time" content="2024-04-14T05:42:40+00:00">
 	<meta name="twitter:card" content="summary_large_image">
@@ -640,29 +640,31 @@
     <span class="fa fw fa-comment"></span>0
     <span class="resp"> 則留言</span>
 </a> -->
-<a id="count_comments" href="#disqus_thread" style="display:none;">查看留言</a>
+<a name="count_comments" href="#disqus_thread" style="display:none;">查看留言</a>
+<a name="display_comments" href="#disqus_thread">查看留言</a>
 <script>
     var base_url=window.location.protocol+'//'+window.location.hostname+(window.location.port?':'+window.location.port:'')+'/';
     var original_url=window.location.href;
     var new_url=original_url.replace(base_url,'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
-    var count_comments=document.getElementById('count_comments');
+    var script_tag=document.getElementsByTagName('script');
+	script_tag=script_tag[script_tag.length-1];
+	var parent=script_tag.parentNode;
+	var count_comments=parent.getElementsByTagName('a')[0];
     count_comments.setAttribute('href',new_url+'#disqus_thread');
-    function check()
+	var display_comments=parent.getElementsByTagName('a')[1];
+    function check(count_comments,display_comments)
     {
         if('查看留言'!=count_comments.innerHTML)
         {
-            var display_comments=document.getElementById('display_comments');
             display_comments.innerHTML=count_comments.innerHTML;
         }
         else
         {
-            setTimeout(check,200);
+            setTimeout(()=>check(count_comments,display_comments),200);
         }
     }
-    check()
+    check(count_comments,display_comments);
 </script>
-<a id="display_comments" href="#disqus_thread">查看留言</a>
-<script id="dsq-count-scr" src="//ntcctmcr.disqus.com/count.js" async></script>
 							</span>
 						</div><!-- .post-meta -->
 					</div><!-- .post-header -->

@@ -12,7 +12,7 @@
 偏旁辨析：只有「勝」可作偏旁，如「蕂」等。">
 	<meta name="robots" content="max-image-preview:large">
 	<link rel="canonical"
-		href="https://static.zh-tw.top/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90%E4%B9%8B%E3%80%8C%E5%8B%9D%E3%80%81%E8%83%9C%E3%80%8D%E2%86%92%E3%80%8C%E8%83%9C%E3%80%8D/">
+		href="https://static.zh-tw.top/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e5%8b%9d%e3%80%81%e8%83%9c%e3%80%8d%e2%86%92%e3%80%8c%e8%83%9c%e3%80%8d/">
 	<meta name="generator" content="All in One SEO (AIOSEO) 4.6.0">
 	<meta property="og:locale" content="zh_TW">
 	<meta property="og:site_name" content="大陸居民臺灣正體字講義 - Notes on Traditional Chinese Characters in Taiwan for Mainland Chinese Residents">
@@ -22,7 +22,7 @@
 辨音：「勝」音shēng[ㄕㄥ]或shèng[ㄕㄥˋ]，「胜」音xīng[ㄒㄧㄥ]或shēng[ㄕㄥ]。
 辨意：「勝（shēng[ㄕㄥ]）」是指禁得起、承受得住、盡，如「勝任」、「不勝其擾」、「高處不勝寒」、「不勝枚舉」、「數不勝數」、「美不勝收」等。「勝（shèng[ㄕㄥˋ]）」則是指佔優勢、贏對方、超越、克制、制服、優美、美好，如「勝負」、「勝敗」、「優勝」、「獲勝」、「取勝」、「得勝」、「險勝」、「勝利」、「勝算」、「勝訴」、「百戰百勝」、「略勝一籌」、「穩操勝券」、「勝券在握」、「勝地」、「名山勝景」、「名勝古跡」等。而「胜（xīng[ㄒㄧㄥ]）」則是同「腥」，為文言詞，今已很少使用。「胜（shēng[ㄕㄥ]）」則是專用於固定詞彙「胜鍵」中，「胜鍵」是一種化學鍵，亦稱為「肽鍵」。現代語境中區分「勝」和「胜」只要記住若非「胜鍵」則一律用「勝」即可。
 偏旁辨析：只有「勝」可作偏旁，如「蕂」等。">
-	<meta property="og:url" content="https://static.zh-tw.top/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90/%E4%B8%80%E7%B0%A1%E5%A4%9A%E7%B9%81%E8%BE%A8%E6%9E%90%E4%B9%8B%E3%80%8C%E5%8B%9D%E3%80%81%E8%83%9C%E3%80%8D%E2%86%92%E3%80%8C%E8%83%9C%E3%80%8D/">
+	<meta property="og:url" content="https://static.zh-tw.top/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e5%8b%9d%e3%80%81%e8%83%9c%e3%80%8d%e2%86%92%e3%80%8c%e8%83%9c%e3%80%8d/">
 	<meta property="article:published_time" content="2024-02-27T23:18:42+00:00">
 	<meta property="article:modified_time" content="2024-04-14T05:42:40+00:00">
 	<meta name="twitter:card" content="summary_large_image">
@@ -640,29 +640,31 @@
     <span class="fa fw fa-comment"></span>0
     <span class="resp"> 則留言</span>
 </a> -->
-<a id="count_comments" href="#disqus_thread" style="display:none;">查看留言</a>
+<a name="count_comments" href="#disqus_thread" style="display:none;">查看留言</a>
+<a name="display_comments" href="#disqus_thread">查看留言</a>
 <script>
     var base_url=window.location.protocol+'//'+window.location.hostname+(window.location.port?':'+window.location.port:'')+'/';
     var original_url=window.location.href;
     var new_url=original_url.replace(base_url,'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
-    var count_comments=document.getElementById('count_comments');
+    var script_tag=document.getElementsByTagName('script');
+	script_tag=script_tag[script_tag.length-1];
+	var parent=script_tag.parentNode;
+	var count_comments=parent.getElementsByTagName('a')[0];
     count_comments.setAttribute('href',new_url+'#disqus_thread');
-    function check()
+	var display_comments=parent.getElementsByTagName('a')[1];
+    function check(count_comments,display_comments)
     {
         if('查看留言'!=count_comments.innerHTML)
         {
-            var display_comments=document.getElementById('display_comments');
             display_comments.innerHTML=count_comments.innerHTML;
         }
         else
         {
-            setTimeout(check,200);
+            setTimeout(()=>check(count_comments,display_comments),200);
         }
     }
-    check()
+    check(count_comments,display_comments);
 </script>
-<a id="display_comments" href="#disqus_thread">查看留言</a>
-<script id="dsq-count-scr" src="//ntcctmcr.disqus.com/count.js" async></script>
 							</span>
 						</div><!-- .post-meta -->
 					</div><!-- .post-header -->
