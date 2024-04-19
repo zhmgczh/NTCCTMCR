@@ -1275,7 +1275,7 @@
             elements[index++] = page_navigation_newer.outerHTML.replaceAll(' id="page_navigation_newer" style="display:none;"', '').replaceAll('|||||page_index|||||', page - 1).replaceAll('|||||search_keyword|||||', search_keyword);
         }
         if (1 < left) {
-            elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||', 1).replaceAll('|||||search_keyword|||||', search_keyword).replaceAll('&amp;page=1', '');
+            elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||', 1).replaceAll('|||||search_keyword|||||', search_keyword).replaceAll('&amp;page=1', '').replaceAll('&page=1', '');
         }
         if (2 < left) {
             elements[index++] = page_navigation_dots.outerHTML.replaceAll(' id="page_navigation_dots" style="display:none;"', '');
@@ -1288,7 +1288,7 @@
                 elements[index++] = page_navigation_number_active.outerHTML.replaceAll(' id="page_navigation_number_active" style="display:none;"', '').replaceAll('|||||page_index|||||', i).replaceAll('|||||search_keyword|||||', search_keyword);
             }
             if (1 == i) {
-                elements[index - 1] = elements[index - 1].replaceAll('&amp;page=1', '');
+                elements[index - 1] = elements[index - 1].replaceAll('&amp;page=1', '').replaceAll('&page=1', '');
             }
         }
         if (right < total_pages - 1) {
