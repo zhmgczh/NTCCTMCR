@@ -18,9 +18,10 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TYPRYG7GXC"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
-
   gtag('config', 'G-TYPRYG7GXC');
 </script>
 	<link rel="stylesheet" id="wp-block-library-css" href="/css/style.min.css" type="text/css" media="all">
@@ -1183,21 +1184,27 @@
 </a>
 <p class="copyright" style="text-align:center;">© <span id="year"></span> <a href="/" rel="home">大陸居民臺灣正體字講義</a></p>
 <script>
-    var current_year=new Date().getFullYear();
-    var year=document.getElementById('year');
-    year.innerHTML='民國'+(current_year-1911)+'年（西元'+current_year+'）'
+    var current_year = new Date().getFullYear();
+    var year = document.getElementById('year');
+    year.innerHTML = '民國' + (current_year - 1911) + '年（西元' + current_year + '）'
 </script>
 <p style="font-size:13.5px;text-align:center;">
-    All rights have been waived by the editors. The website is dedicated to the public domain.<br/>
+    All rights have been waived by the editors. The website is dedicated to the public domain.<br />
     <a href="/copyright-and-disclaimer-%e7%89%88%e6%ac%8a%e5%92%8c%e5%85%8d%e8%b2%ac%e8%81%b2%e6%98%8e/">Copyright and Disclaimer (版權和免責聲明)</a>
 </p>
 <p style="font-size:13.5px;color:red;text-align:center;">（注意這裡是《大陸居民臺灣正體字講義》的靜態備用站點，您可以<a id="dynamic" href="https://www.zh-tw.top/" target="_blank">點擊這裡</a>訪問本站動態站點之對應頁面）</p>
 <script>
-        var base_url=window.location.protocol+'//'+window.location.hostname+(window.location.port?':'+window.location.port:'')+'/';
-        var original_url=window.location.href;
-        var new_url=original_url.replace(base_url,'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
-        var dynamic=document.getElementById('dynamic');
-        dynamic.setAttribute('href',new_url);
+    var base_url = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + '/';
+    var original_url = window.location.href;
+    var new_url = original_url.replace(base_url, 'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
+    if ('https://www.zh-tw.top/%e8%87%ba%e5%bd%8e%e6%ad%a3%e9%ab%94%e5%ad%97%e8%88%87%e5%a4%a7%e9%99%b8%e7%b0%a1%e5%8c%96%e5%ad%97%e5%b0%8d%e7%85%a7%e7%b4%a2%e5%bc%95%e7%b8%bd%e8%a1%a8/' == new_url) {
+        new_url = 'https://www.zh-tw.top/%E8%87%BA%E7%81%A3%E6%AD%A3%E9%AB%94%E5%AD%97%E8%88%87%E5%A4%A7%E9%99%B8%E7%B0%A1%E5%8C%96%E5%AD%97%E5%B0%8D%E7%85%A7%E7%B4%A2%E5%BC%95%E7%B8%BD%E8%A1%A8/';
+    }
+    else if (-1 != new_url.indexOf('/search/')) {
+        new_url = 'https://www.zh-tw.top/' + new_url.split('/search/')[1];
+    }
+    var dynamic = document.getElementById('dynamic');
+    dynamic.setAttribute('href', new_url);
 </script>
 		</div><!-- .section-inner -->
 	</footer><!-- .credits -->

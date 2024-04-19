@@ -103,9 +103,10 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TYPRYG7GXC"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
-
   gtag('config', 'G-TYPRYG7GXC');
 </script>
 	<link rel="stylesheet" id="wp-block-library-css" href="/css/style.min.css" type="text/css" media="all">
@@ -715,27 +716,24 @@
 <a name="count_comments" href="#disqus_thread" style="display:none;">查看留言</a>
 <a name="display_comments" href="#disqus_thread"><span class="fa fw fa-comment"></span>查看留言</a>
 <script>
-    var base_url=window.location.protocol+'//'+window.location.hostname+(window.location.port?':'+window.location.port:'')+'/';
-    var original_url=window.location.href;
-    var new_url=original_url.replace(base_url,'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
-    var script_tag=document.getElementsByTagName('script');
-	script_tag=script_tag[script_tag.length-1];
-	var parent=script_tag.parentNode;
-	var count_comments=parent.getElementsByTagName('a')[0];
-    count_comments.setAttribute('href',new_url+'#disqus_thread');
-	var display_comments=parent.getElementsByTagName('a')[1];
-    function check(count_comments,display_comments)
-    {
-        if('查看留言'!=count_comments.innerHTML)
-        {
-            display_comments.innerHTML=display_comments.innerHTML.replace('查看留言',count_comments.innerHTML);
+    var base_url = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + '/';
+    var original_url = window.location.href;
+    var new_url = original_url.replace(base_url, 'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
+    var script_tag = document.getElementsByTagName('script');
+    script_tag = script_tag[script_tag.length - 1];
+    var parent = script_tag.parentNode;
+    var count_comments = parent.getElementsByTagName('a')[0];
+    count_comments.setAttribute('href', new_url + '#disqus_thread');
+    var display_comments = parent.getElementsByTagName('a')[1];
+    function check(count_comments, display_comments) {
+        if ('查看留言' != count_comments.innerHTML) {
+            display_comments.innerHTML = display_comments.innerHTML.replace('查看留言', count_comments.innerHTML);
         }
-        else
-        {
-            setTimeout(()=>check(count_comments,display_comments),200);
+        else {
+            setTimeout(() => check(count_comments, display_comments), 200);
         }
     }
-    check(count_comments,display_comments);
+    check(count_comments, display_comments);
 </script>
 							</span>
 						</div><!-- .post-meta -->
@@ -813,7 +811,8 @@
     }
 </script><p></p>
 							<div style="clear:both; margin-top:10em; margin-bottom:1em;">
-    <a  id="article_related_link" href="/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e8%87%ba%e3%80%81%e6%aa%af%e3%80%81%e9%a2%b1%e3%80%81%e5%8f%b0%e3%80%8d%e2%86%92%e3%80%8c%e5%8f%b0%e3%80%8d/"
+    <a id="article_related_link"
+        href="/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e8%87%ba%e3%80%81%e6%aa%af%e3%80%81%e9%a2%b1%e3%80%81%e5%8f%b0%e3%80%8d%e2%86%92%e3%80%8c%e5%8f%b0%e3%80%8d/"
         target="_self" rel="dofollow" class="u40d968d20e64592e62438cec05dc6506"><!-- INLINE RELATED POSTS 1/3 //-->
         <style>
             .u40d968d20e64592e62438cec05dc6506 {
@@ -890,49 +889,53 @@
         return shuffled.slice(min);
     }
     function select_related(data, tag, n) {
-        var tag = get_random_subarray(Object.keys(data),1)[0];
-        var index = get_random_subarray(Object.keys(data[tag]),1)[0];
-        var article_related_title=document.getElementById('article_related_title');
-        var article_related_link=document.getElementById('article_related_link');
-        article_related_title.innerHTML=data[tag][index]['title'];
-        article_related_link.setAttribute('href',data[tag][index]['url']);
+        var keys = [];
+        for (var key in Object.keys(data)) {
+            keys.concat(Array(key).fill(data[key].length));
+        }
+        var tag = get_random_subarray(keys, 1)[0];
+        var index = get_random_subarray(Object.keys(data[tag]), 1)[0];
+        var article_related_title = document.getElementById('article_related_title');
+        var article_related_link = document.getElementById('article_related_link');
+        article_related_title.innerHTML = data[tag][index]['title'];
+        article_related_link.setAttribute('href', data[tag][index]['url']);
     }
-    request_json('/category_database.js', (data) => select_related(data, 1))
+    request_json('/category_database.js', (data) => select_related(data, 1));
 </script>
 						</div><!-- .post-content -->
 					</div><!-- .post-inner -->
 				</article><!-- .post -->
 				<!--<div id="respond" class="comment-respond">
     <h3 id="reply-title" class="comment-reply-title"><span class="fa fw fa-pencil"></span>發佈留言 <small><a rel="nofollow"
-                id="cancel-comment-reply-link" href="#respond"
-                style="display:none;">取消回覆</a></small></h3>
+        id="cancel-comment-reply-link" href="#respond"
+        style="display:none;">取消回覆</a></small></h3>
     <form action="https://www.zh-tw.top/wp-comments-post.php" method="post" id="commentform" class="comment-form">
-        <p class="comment-form-comment"><label for="comment">留言<span class="required">*</span></label><textarea
-                id="comment" name="comment" cols="45" rows="6" required=""></textarea></p>
-        <p class="comment-form-author"><label for="author">顯示名稱 <span class="required">*</span></label> <input
-                id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name"
-                required="required"></p>
-        <p class="comment-form-email"><label for="email">電子郵件地址 <span class="required">*</span></label> <input
-                id="email" name="email" type="text" value="" size="30" maxlength="100" autocomplete="email"
-                required="required"></p>
-        <p class="comment-form-url"><label for="url">個人網站網址</label> <input id="url" name="url" type="text" value=""
-                size="30" maxlength="200" autocomplete="url"></p>
-        <p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent"
-                type="checkbox" value="yes"> <label
-                for="wp-comment-cookies-consent">在<strong>瀏覽器</strong>中儲存顯示名稱、電子郵件地址及個人網站網址，以供下次發佈留言時使用。</label></p>
-        <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="發佈留言"> <input
-                type="hidden" name="comment_post_ID" value="6" id="comment_post_ID">
-            <input type="hidden" name="comment_parent" id="comment_parent" value="0">
-        </p>
+    <p class="comment-form-comment"><label for="comment">留言<span class="required">*</span></label><textarea
+        id="comment" name="comment" cols="45" rows="6" required=""></textarea></p>
+    <p class="comment-form-author"><label for="author">顯示名稱 <span class="required">*</span></label> <input
+        id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name"
+        required="required"></p>
+    <p class="comment-form-email"><label for="email">電子郵件地址 <span class="required">*</span></label> <input
+        id="email" name="email" type="text" value="" size="30" maxlength="100" autocomplete="email"
+        required="required"></p>
+    <p class="comment-form-url"><label for="url">個人網站網址</label> <input id="url" name="url" type="text" value=""
+        size="30" maxlength="200" autocomplete="url"></p>
+    <p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent"
+        type="checkbox" value="yes"> <label
+        for="wp-comment-cookies-consent">在<strong>瀏覽器</strong>中儲存顯示名稱、電子郵件地址及個人網站網址，以供下次發佈留言時使用。</label></p>
+    <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="發佈留言"> <input
+        type="hidden" name="comment_post_ID" value="6" id="comment_post_ID">
+    <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+    </p>
     </form>
 </div>--><!-- #respond -->
 <!-- <p style="color:red;">注意這裡是《大陸居民臺灣正體字講義》的靜態備用站點，不顯示任何留言，如須顯示留言請<a id="dynamic" href="https://www.zh-tw.top/" target="_blank">點擊這裡</a>訪問本站之動態站點。</p>
 <script>
-        var base_url=window.location.protocol+'//'+window.location.hostname+(window.location.port?':'+window.location.port:'')+'/';
-        var original_url=window.location.href;
-        var new_url=original_url.replace(base_url,'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
-        var dynamic=document.getElementById('dynamic');
-        dynamic.setAttribute('href',new_url)
+    var base_url = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + '/';
+    var original_url = window.location.href;
+    var new_url = original_url.replace(base_url, 'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
+    var dynamic = document.getElementById('dynamic');
+    dynamic.setAttribute('href', new_url)
 </script> -->
 <div id="disqus_thread"></div>
 <script>
@@ -940,18 +943,18 @@
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
     var disqus_config = function () {
-        var base_url=window.location.protocol+'//'+window.location.hostname+(window.location.port?':'+window.location.port:'')+'/';
-        var original_url=window.location.href;
-        var new_url=original_url.replace(base_url,'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
+        var base_url = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + '/';
+        var original_url = window.location.href;
+        var new_url = original_url.replace(base_url, 'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
         this.page.url = new_url;  // Replace PAGE_URL with your page's canonical URL variable
         console.log(this.page.url);
         //this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://ntcctmcr.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ntcctmcr.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
@@ -1121,21 +1124,27 @@
 </a>
 <p class="copyright" style="text-align:center;">© <span id="year"></span> <a href="/" rel="home">大陸居民臺灣正體字講義</a></p>
 <script>
-    var current_year=new Date().getFullYear();
-    var year=document.getElementById('year');
-    year.innerHTML='民國'+(current_year-1911)+'年（西元'+current_year+'）'
+    var current_year = new Date().getFullYear();
+    var year = document.getElementById('year');
+    year.innerHTML = '民國' + (current_year - 1911) + '年（西元' + current_year + '）'
 </script>
 <p style="font-size:13.5px;text-align:center;">
-    All rights have been waived by the editors. The website is dedicated to the public domain.<br/>
+    All rights have been waived by the editors. The website is dedicated to the public domain.<br />
     <a href="/copyright-and-disclaimer-%e7%89%88%e6%ac%8a%e5%92%8c%e5%85%8d%e8%b2%ac%e8%81%b2%e6%98%8e/">Copyright and Disclaimer (版權和免責聲明)</a>
 </p>
 <p style="font-size:13.5px;color:red;text-align:center;">（注意這裡是《大陸居民臺灣正體字講義》的靜態備用站點，您可以<a id="dynamic" href="https://www.zh-tw.top/" target="_blank">點擊這裡</a>訪問本站動態站點之對應頁面）</p>
 <script>
-        var base_url=window.location.protocol+'//'+window.location.hostname+(window.location.port?':'+window.location.port:'')+'/';
-        var original_url=window.location.href;
-        var new_url=original_url.replace(base_url,'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
-        var dynamic=document.getElementById('dynamic');
-        dynamic.setAttribute('href',new_url);
+    var base_url = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + '/';
+    var original_url = window.location.href;
+    var new_url = original_url.replace(base_url, 'https://www.zh-tw.top/').split('#')[0].split('?')[0].toLowerCase();
+    if ('https://www.zh-tw.top/%e8%87%ba%e5%bd%8e%e6%ad%a3%e9%ab%94%e5%ad%97%e8%88%87%e5%a4%a7%e9%99%b8%e7%b0%a1%e5%8c%96%e5%ad%97%e5%b0%8d%e7%85%a7%e7%b4%a2%e5%bc%95%e7%b8%bd%e8%a1%a8/' == new_url) {
+        new_url = 'https://www.zh-tw.top/%E8%87%BA%E7%81%A3%E6%AD%A3%E9%AB%94%E5%AD%97%E8%88%87%E5%A4%A7%E9%99%B8%E7%B0%A1%E5%8C%96%E5%AD%97%E5%B0%8D%E7%85%A7%E7%B4%A2%E5%BC%95%E7%B8%BD%E8%A1%A8/';
+    }
+    else if (-1 != new_url.indexOf('/search/')) {
+        new_url = 'https://www.zh-tw.top/' + new_url.split('/search/')[1];
+    }
+    var dynamic = document.getElementById('dynamic');
+    dynamic.setAttribute('href', new_url);
 </script>
 		</div><!-- .section-inner -->
 	</footer><!-- .credits -->
