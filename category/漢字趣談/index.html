@@ -813,23 +813,20 @@
 								<a name="count_comments" href="|||||original_url|||||#disqus_thread" style="display:none;">查看留言</a>
 								— <a name="display_comments" href="|||||url|||||#disqus_thread">查看留言</a>
 								<script>
-									var script_tag=document.getElementsByTagName('script');
-									script_tag=script_tag[script_tag.length-1];
-									var parent=script_tag.parentNode;
-									var count_comments=parent.getElementsByTagName('a')[0];
-									var display_comments=parent.getElementsByTagName('a')[1];
-									function check(count_comments,display_comments)
-									{
-										if('查看留言'!=count_comments.innerHTML)
-										{
-											display_comments.innerHTML=display_comments.innerHTML.replace('查看留言',count_comments.innerHTML);
+									var script_tag = document.getElementsByTagName('script');
+									script_tag = script_tag[script_tag.length - 1];
+									var parent = script_tag.parentNode;
+									var count_comments = parent.getElementsByTagName('a')[0];
+									var display_comments = parent.getElementsByTagName('a')[1];
+									function check(count_comments, display_comments) {
+										if ('查看留言' != count_comments.innerHTML) {
+											display_comments.innerHTML = display_comments.innerHTML.replace('查看留言', count_comments.innerHTML);
 										}
-										else
-										{
-											setTimeout(()=>check(count_comments,display_comments),200);
+										else {
+											setTimeout(() => check(count_comments, display_comments), 200);
 										}
 									}
-									check(count_comments,display_comments);
+									check(count_comments, display_comments);
 								</script>
 							</p>
 						</header><!-- .post-header -->
@@ -843,23 +840,20 @@
 								<a name="count_comments" href="|||||original_url|||||#disqus_thread" style="display:none;">查看留言</a>
 								— <a name="display_comments" href="|||||url|||||#disqus_thread">查看留言</a>
 								<script>
-									var script_tag=document.getElementsByTagName('script');
-									script_tag=script_tag[script_tag.length-1];
-									var parent=script_tag.parentNode;
-									var count_comments=parent.getElementsByTagName('a')[0];
-									var display_comments=parent.getElementsByTagName('a')[1];
-									function check(count_comments,display_comments)
-									{
-										if('查看留言'!=count_comments.innerHTML)
-										{
-											display_comments.innerHTML=display_comments.innerHTML.replace('查看留言',count_comments.innerHTML);
+									var script_tag = document.getElementsByTagName('script');
+									script_tag = script_tag[script_tag.length - 1];
+									var parent = script_tag.parentNode;
+									var count_comments = parent.getElementsByTagName('a')[0];
+									var display_comments = parent.getElementsByTagName('a')[1];
+									function check(count_comments, display_comments) {
+										if ('查看留言' != count_comments.innerHTML) {
+											display_comments.innerHTML = display_comments.innerHTML.replace('查看留言', count_comments.innerHTML);
 										}
-										else
-										{
-											setTimeout(()=>check(count_comments,display_comments),200);
+										else {
+											setTimeout(() => check(count_comments, display_comments), 200);
 										}
 									}
-									check(count_comments,display_comments);
+									check(count_comments, display_comments);
 								</script>
 							</p>
 						</header><!-- .post-header -->
@@ -913,55 +907,45 @@
         xhr.send();
     }
     function process_page_navigation(page, total_pages) {
-        var container=document.getElementById('page_navigation');
-        var page_navigation_newer=document.getElementById('page_navigation_newer');
-        var page_navigation_older=document.getElementById('page_navigation_older');
-        var page_navigation_dots=document.getElementById('page_navigation_dots');
-        var page_navigation_number=document.getElementById('page_navigation_number');
-        var page_navigation_number_active=document.getElementById('page_navigation_number_active');
-        var page_navigation_clear=document.getElementById('page_navigation_clear');
-        var left=Math.max(1,page-2);
-        var right=Math.min(total_pages,page+2);
-        var elements=[];
-        var index=0;
-        if(1<page)
-        {
-            elements[index++] = page_navigation_newer.outerHTML.replaceAll(' id="page_navigation_newer" style="display:none;"', '').replaceAll('|||||page_index|||||',page-1);
+        var container = document.getElementById('page_navigation');
+        var page_navigation_newer = document.getElementById('page_navigation_newer');
+        var page_navigation_older = document.getElementById('page_navigation_older');
+        var page_navigation_dots = document.getElementById('page_navigation_dots');
+        var page_navigation_number = document.getElementById('page_navigation_number');
+        var page_navigation_number_active = document.getElementById('page_navigation_number_active');
+        var page_navigation_clear = document.getElementById('page_navigation_clear');
+        var left = Math.max(1, page - 2);
+        var right = Math.min(total_pages, page + 2);
+        var elements = [];
+        var index = 0;
+        if (1 < page) {
+            elements[index++] = page_navigation_newer.outerHTML.replaceAll(' id="page_navigation_newer" style="display:none;"', '').replaceAll('|||||page_index|||||', page - 1);
         }
-        if(1<left)
-        {
-            elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||',1).replaceAll('?page=1','');
+        if (1 < left) {
+            elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||', 1).replaceAll('?page=1', '');
         }
-        if(2<left)
-        {
+        if (2 < left) {
             elements[index++] = page_navigation_dots.outerHTML.replaceAll(' id="page_navigation_dots" style="display:none;"', '');
         }
-        for(var i=left;i<=right;++i)
-        {
-            if(i!=page)
-            {
-                elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||',i);
+        for (var i = left; i <= right; ++i) {
+            if (i != page) {
+                elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||', i);
             }
-            else
-            {
-                elements[index++] = page_navigation_number_active.outerHTML.replaceAll(' id="page_navigation_number_active" style="display:none;"', '').replaceAll('|||||page_index|||||',i);
+            else {
+                elements[index++] = page_navigation_number_active.outerHTML.replaceAll(' id="page_navigation_number_active" style="display:none;"', '').replaceAll('|||||page_index|||||', i);
             }
-            if(1==i)
-            {
-                elements[index-1]=elements[index-1].replaceAll('?page=1','');
+            if (1 == i) {
+                elements[index - 1] = elements[index - 1].replaceAll('?page=1', '');
             }
         }
-        if(right<total_pages-1)
-        {
+        if (right < total_pages - 1) {
             elements[index++] = page_navigation_dots.outerHTML.replaceAll(' id="page_navigation_dots" style="display:none;"', '');
         }
-        if(right<total_pages)
-        {
-            elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||',total_pages);
+        if (right < total_pages) {
+            elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||', total_pages);
         }
-        if(page<total_pages)
-        {
-            elements[index++] = page_navigation_older.outerHTML.replaceAll(' id="page_navigation_older" style="display:none;"', '').replaceAll('|||||page_index|||||',page+1);
+        if (page < total_pages) {
+            elements[index++] = page_navigation_older.outerHTML.replaceAll(' id="page_navigation_older" style="display:none;"', '').replaceAll('|||||page_index|||||', page + 1);
         }
         elements[index++] = page_navigation_newer.outerHTML;
         elements[index++] = page_navigation_older.outerHTML;
@@ -970,13 +954,11 @@
         elements[index++] = page_navigation_number_active.outerHTML;
         elements[index++] = page_navigation_clear.outerHTML;
         container.innerHTML = elements.join('\n');
-        if(1==page)
-        {
-            document.title=pure_title;
+        if (1 == page) {
+            document.title = pure_title;
         }
-        else
-        {
-            document.title=pure_title+' - Page '+page.toString();
+        else {
+            document.title = pure_title + ' - Page ' + page.toString();
         }
     }
     function select_category(data, tag, page) {
@@ -1004,7 +986,7 @@
             new_element = new_element.replaceAll('|||||category|||||', tag);
             new_element = new_element.replaceAll('|||||quote_category|||||', encodeURIComponent(tag)).toLowerCase();
             new_element = new_element.replaceAll('|||||url|||||', data[tag][i]['url']);
-            new_element = new_element.replaceAll('|||||original_url|||||', 'https://www.zh-tw.top/' + data[tag][i]['url'].replace('/',''));
+            new_element = new_element.replaceAll('|||||original_url|||||', 'https://www.zh-tw.top/' + data[tag][i]['url'].replace('/' ,''));
             new_element = new_element.replaceAll('|||||title|||||', data[tag][i]['title']);
             elements[index++] = new_element;
         }
@@ -1028,8 +1010,8 @@
     if ('' == page) {
         page = 1;
     }
-    page=parseInt(page);
-    var pure_title=document.title;
+    page = parseInt(page);
+    var pure_title = document.title;
     request_json('/category_database.js', (data) => select_category(data, '漢字趣談', page))
 </script>
 <p></p>

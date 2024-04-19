@@ -1259,55 +1259,45 @@
         xhr.send();
     }
     function process_page_navigation(page, total_pages, search_keyword) {
-        var container=document.getElementById('page_navigation');
-        var page_navigation_newer=document.getElementById('page_navigation_newer');
-        var page_navigation_older=document.getElementById('page_navigation_older');
-        var page_navigation_dots=document.getElementById('page_navigation_dots');
-        var page_navigation_number=document.getElementById('page_navigation_number');
-        var page_navigation_number_active=document.getElementById('page_navigation_number_active');
-        var page_navigation_clear=document.getElementById('page_navigation_clear');
-        var left=Math.max(1,page-2);
-        var right=Math.min(total_pages,page+2);
-        var elements=[];
-        var index=0;
-        if(1<page)
-        {
-            elements[index++] = page_navigation_newer.outerHTML.replaceAll(' id="page_navigation_newer" style="display:none;"', '').replaceAll('|||||page_index|||||',page-1).replaceAll('|||||search_keyword|||||', search_keyword);
+        var container = document.getElementById('page_navigation');
+        var page_navigation_newer = document.getElementById('page_navigation_newer');
+        var page_navigation_older = document.getElementById('page_navigation_older');
+        var page_navigation_dots = document.getElementById('page_navigation_dots');
+        var page_navigation_number = document.getElementById('page_navigation_number');
+        var page_navigation_number_active = document.getElementById('page_navigation_number_active');
+        var page_navigation_clear = document.getElementById('page_navigation_clear');
+        var left = Math.max(1, page - 2);
+        var right = Math.min(total_pages, page + 2);
+        var elements = [];
+        var index = 0;
+        if (1 < page) {
+            elements[index++] = page_navigation_newer.outerHTML.replaceAll(' id="page_navigation_newer" style="display:none;"', '').replaceAll('|||||page_index|||||', page - 1).replaceAll('|||||search_keyword|||||', search_keyword);
         }
-        if(1<left)
-        {
-            elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||',1).replaceAll('|||||search_keyword|||||', search_keyword).replaceAll('&amp;page=1','');
+        if (1 < left) {
+            elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||', 1).replaceAll('|||||search_keyword|||||', search_keyword).replaceAll('&amp;page=1', '');
         }
-        if(2<left)
-        {
+        if (2 < left) {
             elements[index++] = page_navigation_dots.outerHTML.replaceAll(' id="page_navigation_dots" style="display:none;"', '');
         }
-        for(var i=left;i<=right;++i)
-        {
-            if(i!=page)
-            {
-                elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||',i).replaceAll('|||||search_keyword|||||', search_keyword);
+        for (var i = left; i <= right; ++i) {
+            if (i != page) {
+                elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||', i).replaceAll('|||||search_keyword|||||', search_keyword);
             }
-            else
-            {
-                elements[index++] = page_navigation_number_active.outerHTML.replaceAll(' id="page_navigation_number_active" style="display:none;"', '').replaceAll('|||||page_index|||||',i).replaceAll('|||||search_keyword|||||', search_keyword);
+            else {
+                elements[index++] = page_navigation_number_active.outerHTML.replaceAll(' id="page_navigation_number_active" style="display:none;"', '').replaceAll('|||||page_index|||||', i).replaceAll('|||||search_keyword|||||', search_keyword);
             }
-            if(1==i)
-            {
-                elements[index-1]=elements[index-1].replaceAll('&amp;page=1','');
+            if (1 == i) {
+                elements[index - 1] = elements[index - 1].replaceAll('&amp;page=1', '');
             }
         }
-        if(right<total_pages-1)
-        {
+        if (right < total_pages - 1) {
             elements[index++] = page_navigation_dots.outerHTML.replaceAll(' id="page_navigation_dots" style="display:none;"', '');
         }
-        if(right<total_pages)
-        {
-            elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||',total_pages).replaceAll('|||||search_keyword|||||', search_keyword);
+        if (right < total_pages) {
+            elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||', total_pages).replaceAll('|||||search_keyword|||||', search_keyword);
         }
-        if(page<total_pages)
-        {
-            elements[index++] = page_navigation_older.outerHTML.replaceAll(' id="page_navigation_older" style="display:none;"', '').replaceAll('|||||page_index|||||',page+1).replaceAll('|||||search_keyword|||||', search_keyword);
+        if (page < total_pages) {
+            elements[index++] = page_navigation_older.outerHTML.replaceAll(' id="page_navigation_older" style="display:none;"', '').replaceAll('|||||page_index|||||', page + 1).replaceAll('|||||search_keyword|||||', search_keyword);
         }
         elements[index++] = page_navigation_newer.outerHTML;
         elements[index++] = page_navigation_older.outerHTML;
@@ -1316,39 +1306,32 @@
         elements[index++] = page_navigation_number_active.outerHTML;
         elements[index++] = page_navigation_clear.outerHTML;
         container.innerHTML = elements.join('\n');
-        if(1==page)
-        {
-            document.title=pure_title;
+        if (1 == page) {
+            document.title = pure_title;
         }
-        else
-        {
-            document.title=pure_title+' - Page '+page.toString();
+        else {
+            document.title = pure_title + ' - Page ' + page.toString();
         }
     }
-    function query_search(data,search_keyword)
-    {
-        var title_keys=[];
-        var description_keys=[];
-        var title_index=0;
-        var description_index=0;
-        for(var key in data)
-        {
-            if(('article'==data[key]['type']||'page'==data[key]['type']))
-            {
-                if(-1!=data[key]['title'].indexOf(search_keyword))
-                {
-                    title_keys[title_index++]=key;
+    function query_search(data, search_keyword) {
+        var title_keys = [];
+        var description_keys = [];
+        var title_index = 0;
+        var description_index = 0;
+        for (var key in data) {
+            if (('article' == data[key]['type'] || 'page' == data[key]['type'])) {
+                if (-1 != data[key]['title'].indexOf(search_keyword)) {
+                    title_keys[title_index++] = key;
                 }
-                else if(-1!=data[key]['description'].indexOf(search_keyword))
-                {
-                    description_keys[description_index++]=key;
+                else if (-1 != data[key]['description'].indexOf(search_keyword)) {
+                    description_keys[description_index++] = key;
                 }
             }
         }
         return title_keys.concat(description_keys);
     }
     function select_search(data, search_keyword, page) {
-        var keys = query_search(data,search_keyword);
+        var keys = query_search(data, search_keyword);
         var total_pages = Math.ceil(keys.length / 10);
         var total_page_number = document.getElementById('total_page_number');
         total_page_number.innerHTML = total_pages;
@@ -1368,30 +1351,27 @@
         var elements = [];
         var index = 0;
         for (var i = left; i < right; ++i) {
-            if('article'==data[keys[i]]['type'])
-            {
+            if ('article' == data[keys[i]]['type']) {
                 var new_element = article_post_sample.outerHTML.replaceAll(' id="article_post_sample" style="display:none;"', '');
                 new_element = new_element.replaceAll('|||||category|||||', data[keys[i]]['category']);
                 new_element = new_element.replaceAll('|||||quote_category|||||', encodeURIComponent(data[keys[i]]['category'])).toLowerCase();
                 new_element = new_element.replaceAll('|||||url|||||', keys[i]);
-                new_element = new_element.replaceAll('|||||original_url|||||', 'https://www.zh-tw.top/' + keys[i].replace('/',''));
+                new_element = new_element.replaceAll('|||||original_url|||||', 'https://www.zh-tw.top/' + keys[i].replace('/' ,''));
                 new_element = new_element.replaceAll('|||||title|||||', data[keys[i]]['title']);
                 new_element = new_element.replaceAll('|||||search_keyword|||||', search_keyword);
                 elements[index++] = new_element;
             }
-            else
-            {
+            else {
                 var new_element = page_post_sample.outerHTML.replaceAll(' id="page_post_sample" style="display:none;"', '');
                 new_element = new_element.replaceAll('|||||url|||||', keys[i]);
-                new_element = new_element.replaceAll('|||||original_url|||||', 'https://www.zh-tw.top/' + keys[i].replace('/',''));
+                new_element = new_element.replaceAll('|||||original_url|||||', 'https://www.zh-tw.top/' + keys[i].replace('/', ''));
                 new_element = new_element.replaceAll('|||||title|||||', data[keys[i]]['title']);
                 new_element = new_element.replaceAll('|||||search_keyword|||||', search_keyword);
                 elements[index++] = new_element;
             }
         }
-        if(0==keys.length)
-        {
-            prompt=`<article class="post single single-post">
+        if (0 == keys.length) {
+            prompt = `<article class="post single single-post">
 <div class="post-inner">
 <div class="post-content entry-content">
 <p>找不到符合條件的項目，請使用搜尋功能再試一次。</p>
@@ -1403,7 +1383,7 @@
 </div><!-- .post-inner -->
 </article>`;
             document.getElementById('posts').removeAttribute('class');
-            document.getElementById('posts').innerHTML=prompt;
+            document.getElementById('posts').innerHTML = prompt;
             document.getElementById('page_navigation').remove();
             return;
         }
@@ -1427,20 +1407,17 @@
     if ('' == page) {
         page = 1;
     }
-    page=parseInt(page);
-    var search_keyword=decodeURIComponent(get_query_variable('s'));
-    var pure_title=search_keyword+' - 大陸居民臺灣正體字講義';
-    document.title=pure_title;
-    document.getElementById('search_keyword').innerHTML=search_keyword;
-    function check()
-    {
-        try
-        {
-            document.getElementById('wp-block-search__input-1').setAttribute('value',search_keyword);
+    page = parseInt(page);
+    var search_keyword = decodeURIComponent(get_query_variable('s'));
+    var pure_title = search_keyword + ' - 大陸居民臺灣正體字講義';
+    document.title = pure_title;
+    document.getElementById('search_keyword').innerHTML = search_keyword;
+    function check() {
+        try {
+            document.getElementById('wp-block-search__input-1').setAttribute('value', search_keyword);
         }
-        catch(err)
-        {
-            setTimeout(()=>check(),200);
+        catch (err) {
+            setTimeout(() => check(), 200);
         }
     }
     check();
