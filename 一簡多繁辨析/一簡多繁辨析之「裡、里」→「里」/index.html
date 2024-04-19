@@ -1171,14 +1171,18 @@
         new_url = 'https://www.zh-tw.top/%E8%87%BA%E7%81%A3%E6%AD%A3%E9%AB%94%E5%AD%97%E8%88%87%E5%A4%A7%E9%99%B8%E7%B0%A1%E5%8C%96%E5%AD%97%E5%B0%8D%E7%85%A7%E7%B4%A2%E5%BC%95%E7%B8%BD%E8%A1%A8/';
     }
     else if (-1 != new_url.indexOf('/search/')) {
-        var page = get_query_variable('page');
+        var page_1 = get_query_variable('page');
         var search_keyword_1 = get_query_variable('s');
-        if ('' == page) {
+        if ('' == page_1) {
             new_url = 'https://www.zh-tw.top/?s=' + search_keyword_1;
         }
         else {
-            new_url = 'https://www.zh-tw.top/page/' + page + '/?s=' + search_keyword_1;
+            new_url = 'https://www.zh-tw.top/page/' + page_1 + '/?s=' + search_keyword_1;
         }
+    }
+    else if (-1 != new_url.indexOf('/category/')) {
+        var page_1 = get_query_variable('page');
+        new_url = new_url.split('?page=')[0] + '/page/' + page_1 + '/';
     }
     var dynamic = document.getElementById('dynamic');
     dynamic.setAttribute('href', new_url);
