@@ -7,6 +7,7 @@
 	<!-- All in One SEO 4.6.0 - aioseo.com -->
 	<meta name="robots" content="max-image-preview:large">
 	<link rel="canonical" href="https://static.zh-tw.top/%e6%bc%a2%e5%ad%97%e8%b6%a3%e8%ab%87/" id="current_url">
+	<link rel="prev" href="" id="prev_url">
 	<link rel="next" href="/%e6%bc%a2%e5%ad%97%e8%b6%a3%e8%ab%87/?page=2" id="next_url">
 	<meta name="generator" content="All in One SEO (AIOSEO) 4.6.0">
 	<!-- <link rel="icon" href="https://www.zh-tw.top/wp-content/uploads/2024/04/favicon-88x88.png" sizes="32x32">
@@ -917,6 +918,15 @@
         var index = 0;
         if (1 < page) {
             elements[index++] = page_navigation_newer.outerHTML.replaceAll(' id="page_navigation_newer" style="display:none;"', '').replaceAll('|||||page_index|||||', page - 1);
+            document.getElementById('prev_url').setAttribute('href', window.location.href.split('?')[0] + '?page=' + (page - 1).toString());
+        }
+        else {
+            if (1 < total_pages) {
+                document.getElementById('prev_url').setAttribute('href', window.location.href.split('?')[0] + '?page=' + total_pages.toString());
+            }
+            else {
+                document.getElementById('prev_url').setAttribute('href', window.location.href.split('?')[0]);
+            }
         }
         if (1 < left) {
             elements[index++] = page_navigation_number.outerHTML.replaceAll(' id="page_navigation_number" style="display:none;"', '').replaceAll('|||||page_index|||||', 1).replaceAll('?page=1', '');
