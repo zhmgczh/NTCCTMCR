@@ -23,8 +23,7 @@
 中國哲學書電子化計劃 打開 打開
 漢語多功能字庫（香港）打開 打開
 筆順學習 開關 打開
-關閉「筆順學習」
-載入中，請稍後...">
+關閉「筆順學習」">
 	<meta name="robots" content="max-image-preview:large">
 	<link rel="canonical"
 		href="https://static.zh-tw.top/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e9%8c%ab%e3%80%81%e9%8d%9a%e3%80%8d%e2%86%92%e3%80%8c%e9%94%a1%e3%80%81%e9%92%96%e3%80%8d/">
@@ -50,8 +49,7 @@
 中國哲學書電子化計劃 打開 打開
 漢語多功能字庫（香港）打開 打開
 筆順學習 開關 打開
-關閉「筆順學習」
-載入中，請稍後...">
+關閉「筆順學習」">
 	<meta property="og:url" content="https://static.zh-tw.top/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90/%e4%b8%80%e7%b0%a1%e5%a4%9a%e7%b9%81%e8%be%a8%e6%9e%90%e4%b9%8b%e3%80%8c%e9%8c%ab%e3%80%81%e9%8d%9a%e3%80%8d%e2%86%92%e3%80%8c%e9%94%a1%e3%80%81%e9%92%96%e3%80%8d/">
 	<meta property="article:published_time" content="2024-02-27T23:18:42+00:00">
 	<meta property="article:modified_time" content="2024-04-14T05:42:40+00:00">
@@ -74,8 +72,7 @@
 中國哲學書電子化計劃 打開 打開
 漢語多功能字庫（香港）打開 打開
 筆順學習 開關 打開
-關閉「筆順學習」
-載入中，請稍後...">
+關閉「筆順學習」">
 	<!-- <link rel="icon" href="https://www.zh-tw.top/wp-content/uploads/2024/04/favicon-88x88.png" sizes="32x32">
 <link rel="icon" href="https://www.zh-tw.top/wp-content/uploads/2024/04/favicon-300x300.png" sizes="192x192">
 <link rel="apple-touch-icon" href="https://www.zh-tw.top/wp-content/uploads/2024/04/favicon-300x300.png">
@@ -751,9 +748,10 @@
 <tag id="stroke_pos"></tag>
 <center><button onclick="close_stroke()">關閉「筆順學習」</button></center>
 <center>
-  <div id="stroke_player" style="width:348px;height:470px;display:none;">載入中，請稍後...</div>
+  <!-- <div id="stroke_player" style="width:348px;height:470px;display:none;">載入中，請稍後...</div> -->
+  <iframe id="stroke_player" src="" frameborder=0 style="width:300px;height:520px;display:none;" allow="fullscreen"></iframe>
 </center>
-<script src="https://stroke-order.learningweb.moe.edu.tw/js/playerShare.js"></script>
+<!-- <script src="https://stroke-order.learningweb.moe.edu.tw/js/playerShare.js"></script> -->
 <script>
     function jumpTo(anchor_id) {
         var url = location.href;
@@ -761,25 +759,29 @@
         history.replaceState(null, null, url);
     }
     var stroke_id = '';
-    function load_stroke(current_id) {
+    function load_stroke(key, sub_key) {
         var my_div = document.getElementById('stroke_player');
+        var current_id = stroke[key][sub_key];
         if (current_id != stroke_id) {
-            var playerShare = new PlayerShare('https://stroke-order.learningweb.moe.edu.tw/', current_id, '0', 'zh_TW');
-            playerShare.load();
+            // var playerShare = new PlayerShare('https://stroke-order.learningweb.moe.edu.tw/', current_id, '0', 'zh_TW');
+            // playerShare.load();
+            my_div.src = 'https://stroke-order.learningweb.moe.edu.tw/dictFrame.jsp?ID=' + current_id;
             my_div.style.removeProperty('display');
             stroke_id = current_id;
             jumpTo('stroke_pos');
         }
         else {
             my_div.style['display'] = 'none';
-            my_div.innerHTML = '';
+            // my_div.innerHTML = '';
+            my_div.src = '';
             stroke_id = '';
         }
     }
     function close_stroke() {
         var my_div = document.getElementById('stroke_player');
         my_div.style['display'] = 'none';
-        my_div.innerHTML = '';
+        // my_div.innerHTML = '';
+        my_div.src = '';
         stroke_id = '';
     }
 </script><p></p>
