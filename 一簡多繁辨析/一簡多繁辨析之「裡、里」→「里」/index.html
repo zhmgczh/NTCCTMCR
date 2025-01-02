@@ -813,6 +813,8 @@
         if (current_id != stroke_id) {
             // var playerShare = new PlayerShare('https://stroke-order.learningweb.moe.edu.tw/', current_id, '0', 'zh_TW');
             // playerShare.load();
+            my_div.style['width'] = '300px';
+            my_div.style['height'] = '520px';
             my_div.src = 'https://stroke-order.learningweb.moe.edu.tw/dictFrame.jsp?ID=' + current_id;
             my_div.style.removeProperty('display');
             stroke_id = current_id;
