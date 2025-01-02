@@ -773,9 +773,9 @@
         history.replaceState(null, null, url);
     }
     var stroke_id = '';
-    function load_stroke(key, sub_key) {
+    function load_stroke(key) {
         var my_div = document.getElementById('stroke_player');
-        var current_id = stroke[key][sub_key];
+        var current_id = key;
         if (current_id != stroke_id) {
             // var playerShare = new PlayerShare('https://stroke-order.learningweb.moe.edu.tw/', current_id, '0', 'zh_TW');
             // playerShare.load();
