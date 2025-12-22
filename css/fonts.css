@@ -77,3 +77,38 @@
 	font-display: swap;
 	src: url( ../fonts/merriweather-v30-latin-900.woff2 ) format('woff2');
 }
+
+@font-face {
+  font-family: "ZhongYiSong";
+  src: url("../fonts/中易宋体.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DFKai-SB";
+  src: url("../fonts/DFKai-SB.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "edukai";
+  src: url("../fonts/edukai-4.0.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "eduSong";
+  src: url("../fonts/eduSong_Unicode.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GBPinyinok";
+  src: url("../fonts/GB Pinyinok-C.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
