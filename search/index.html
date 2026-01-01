@@ -1328,6 +1328,7 @@
                         if(-1 != pieces[i].split('」').pop().indexOf('「') &&
                            -1 != pieces[i+1].split('「')[0].indexOf('」')) {
                             keyword_keys[keyword_index++] = key;
+                            found = true;
                             break;
                         }
                     }
