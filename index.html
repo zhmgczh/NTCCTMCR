@@ -1211,6 +1211,22 @@ Welcome to NTCCTMCR
         }
         return shuffled.slice(min);
     }
+    function get_random_subarray(arr, size) {
+        const n = arr.length;
+        if (size <= 0) return [];
+        if (size >= n) return arr.slice();
+        const picked = new Map(); // key: index, value: mapped index
+        const out = new Array(size);
+        let k = 0;
+        for (let i = n - size; i < n; i++) {
+            const r = (Math.random() * (i + 1)) | 0;
+            const x = picked.has(r) ? picked.get(r) : r;
+            const y = picked.has(i) ? picked.get(i) : i;
+            picked.set(r, y);
+            out[k++] = arr[x];
+        }
+        return out;
+    }
     function select_yijianduofanbianxi(data, tag, n) {
         var keys = Object.keys(data[tag]);
         if (keys.length < n) {
