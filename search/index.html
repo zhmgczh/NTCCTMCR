@@ -1325,7 +1325,7 @@
                 if(pieces.length > 1) {
                     for(var i = 0; i < pieces.length - 1; ++i) {
                         if(-1 != pieces[i].split('」').pop().indexOf('「') &&
-                           -1 != pieces[i].split('「')[0].indexOf('」')) {
+                           -1 != pieces[i+1].split('「')[0].indexOf('」')) {
                             keyword_keys[keyword_index++] = key;
                             continue;
                         }
